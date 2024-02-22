@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <div><input type="file" name="file"></div>
+        <div><button type="submit">Add file</button></div>
+    </form>
+</div>
+<br>
+<div th:each="file: ${files}">
+    <a th:text="${file.filename}"></a>
+</div>
+</body>
+</html>

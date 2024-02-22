@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class File {
 
-    public File(String file) {
-        this.file = file;
+    public File(String fileName, String source) {
+        this.fileName = fileName;
+        this.source = source;
     }
 
     @Id
@@ -17,5 +18,12 @@ public class File {
     private Long id;
 
     @Column(columnDefinition = "text")
-    private String file;
+    private String fileName;
+
+    @Column(columnDefinition = "text")
+    private String source;
+
+    public FileDto toFileDto(){
+        return new FileDto(id, fileName);
+    }
 }
